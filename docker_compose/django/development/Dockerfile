@@ -7,6 +7,7 @@ RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install build-essential curl
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
+RUN apt-get install -y npm
 RUN nodejs -v && npm -v
 
 # Requirements have to be pulled and installed here, otherwise caching won't work

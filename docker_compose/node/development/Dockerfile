@@ -1,9 +1,12 @@
-FROM node:latest
-
-COPY . /app
+FROM node:12.2.0-alpine
 
 WORKDIR /app
-RUN npm install
+
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY ./package.json /app/package.json
+
+RUN npm install --silent
 
 COPY ./docker_compose/node/development/start.sh /start.sh
 RUN sed -i 's/\r//' /start.sh
