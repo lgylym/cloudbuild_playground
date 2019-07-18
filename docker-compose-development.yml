@@ -7,6 +7,7 @@ volumes:
 services:
   postgres:
     container_name: postgres
+    image: gcr.io/$PROJECT_ID/postgres
     build: ./docker_compose/postgres
     volumes:
       - postgres_data_dev:/var/lib/postgresql/data
@@ -15,6 +16,7 @@ services:
 
   frontend:
     container_name: frontend
+    image: gcr.io/$PROJECT_ID/frontend
     build:
       context: .
       dockerfile: ./docker_compose/node/development/Dockerfile
@@ -27,6 +29,7 @@ services:
 
   backend:
     container_name: backend
+    image: gcr.io/$PROJECT_ID/backend
     build:
       context: .
       dockerfile: ./docker_compose/django/development/Dockerfile

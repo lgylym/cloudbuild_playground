@@ -7,7 +7,10 @@ It creates a pipeline in cloud build to build images, run the services, and run 
 
 The main juice is `cloudbuild.compose.yaml`, which is borrowed from [here](https://github.com/GoogleCloudPlatform/cloudbuild-integration-testing).
 
-After you [setup your gcloud](https://cloud.google.com/cloud-build/docs/running-builds/start-build-manually), use the following command to manually trigger a build:
+Steps:
+After you [setup your gcloud](https://cloud.google.com/cloud-build/docs/running-builds/start-build-manually), 
+
+use the following command to manually trigger a build:
 ```
 gcloud builds submit --config=cloudbuild.compose.yaml .
 ```

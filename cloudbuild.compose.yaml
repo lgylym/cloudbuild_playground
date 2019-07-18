@@ -60,13 +60,6 @@ steps:
 #   ]
 #   waitFor: ['build db']
 
-# images:
-#   [
-#     'gcr.io/$PROJECT_ID/frontend',
-#     'gcr.io/$PROJECT_ID/backend',
-#     'gcr.io/$PROJECT_ID/postgres'
-#   ]
-
 - id: 'compose up'
   name: 'gcr.io/$PROJECT_ID/docker-compose:latest'
   entrypoint: '/bin/bash'
@@ -87,3 +80,10 @@ steps:
       ### -r = retries; -i = interval; -k = keyword to search for ###
       ./test/test-connection.sh -r 20 -i 3 -u http://frontend:3000
   waitFor: ['compose up']
+
+images:
+  [
+    'gcr.io/$PROJECT_ID/frontend',
+    'gcr.io/$PROJECT_ID/backend',
+    'gcr.io/$PROJECT_ID/postgres'
+  ]
