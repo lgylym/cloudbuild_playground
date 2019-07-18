@@ -14,6 +14,6 @@ gcloud builds submit --config=cloudbuild.compose.yaml .
 You can certainly connect the github repo with cloud build as a trigger.
 
 Todos:
-- [ ] Manage secrets?
+- [ ] [Manage secrets](https://cloud.google.com/cloud-build/docs/securing-builds/use-encrypted-secrets-credentials)
 - [ ] Customized build logic (e.g., certain actions on a certain branch etc.)?
 - [ ] Deployment.
