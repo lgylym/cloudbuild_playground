@@ -6,15 +6,15 @@ volumes:
 
 services:
   postgres:
-    container_name: postgres_server
+    container_name: postgres
     build: ./docker_compose/postgres
     volumes:
       - postgres_data_dev:/var/lib/postgresql/data
       - postgres_backup_dev:/backups
     env_file: .env
 
-  node:
-    container_name: node_server
+  frontend:
+    container_name: frontend
     build:
       context: .
       dockerfile: ./docker_compose/node/development/Dockerfile
@@ -25,15 +25,15 @@ services:
     ports:
       - "3000:3000"
 
-  django:
-    container_name: django_server
+  backend:
+    container_name: backend
     build:
       context: .
       dockerfile: ./docker_compose/django/development/Dockerfile
     command: /start.sh
     depends_on:
       - postgres
-      - node
+      - frontend
     env_file: .env
     volumes:
       - .:/app
@@ -41,3 +41,8 @@ services:
       - "8000:8000"
     links:
       - postgres
+
+networks:
+    default:
+        external:
+            name: cloudbuild
