@@ -8,9 +8,14 @@ It creates a pipeline in cloud build to build images, run the services, and run 
 The main juice is `cloudbuild.compose.yaml`, which is borrowed from [here](https://github.com/GoogleCloudPlatform/cloudbuild-integration-testing).
 
 Steps:
-After you [setup your gcloud](https://cloud.google.com/cloud-build/docs/running-builds/start-build-manually), 
-
-use the following command to manually trigger a build:
+1. [Setup your gcloud](https://cloud.google.com/cloud-build/docs/running-builds/start-build-manually)
+2. Install docker-compose into your project's registry
+```
+git clone https://github.com/GoogleCloudPlatform/cloud-builders-community.git
+cd docker-compose
+gcloud builds submit --config=cloudbuild.yaml .
+```
+3. Use the following command to manually trigger a build:
 ```
 gcloud builds submit --config=cloudbuild.compose.yaml .
 ```
@@ -20,3 +25,6 @@ Todos:
 - [ ] [Manage secrets](https://cloud.google.com/cloud-build/docs/securing-builds/use-encrypted-secrets-credentials)
 - [ ] [Customized build logic](https://github.com/GoogleCloudPlatform/cloud-builders/issues/431)
 - [ ] Deployment.
+
+#### Troubleshooting
+- Google provides [tool](https://github.com/GoogleCloudPlatform/cloud-build-local) for local debugging.
