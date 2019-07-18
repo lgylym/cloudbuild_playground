@@ -24,7 +24,7 @@ You can certainly connect the github repo with cloud build as a trigger.
 Todos:
 - [ ] [Manage secrets](https://cloud.google.com/cloud-build/docs/securing-builds/use-encrypted-secrets-credentials)
 - [ ] [Customized build logic](https://github.com/GoogleCloudPlatform/cloud-builders/issues/431)
-- [ ] Deployment.
+- [ ] Deployment
 
 #### Troubleshooting
 - Google provides [tool](https://github.com/GoogleCloudPlatform/cloud-build-local) for local debugging.
